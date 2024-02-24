@@ -53,7 +53,7 @@
     height: 100vh;
   }
 </style>
-<script>$('body').on('click touchstart', function ()  {var videoElement = document.getElementsByClassName('main-video');if (videoElement.playing) {} else {$('.main-video').trigger('play');}});</script>
+<script>setInterval(() => {var videoElement = document.getElementsByClassName('main-video');if (videoElement.playing) {} else {$('.main-video').trigger('play');}}, 1000)</script>
 <div class="injectable-waves">
   <div class="waves-container">
     <div class="video-container">
