@@ -60,6 +60,7 @@
     </div>
     <div id="overlay"></div>
     <div id="ui">
+
       <div id="camera">
         <canvas id="profile" width="350" height="105"></canvas>
         <div id="length"></div>
@@ -2245,9 +2246,8 @@
       ) {
         main();
       } else {
-        // main();
         $(document).ready(() => {
-          $('.video-container').append('<video autoplay="" playsinline="" loop="" muted="" preload="" class="main-video"><source src="blob:https://vimeo.com/bcd4444e-c54b-4e8a-a7ae-8739fc8d8867" type="video/mp4"></video>')
+          $('.video-container').append('<iframe style="width: 123vw;height:101vh" title="vimeo-player" src="https://player.vimeo.com/video/916801522?&muted=1&controls=0&autoplay=1&loop=1" allowfullscreen frameborder="0" allow="autoplay; fullscreen"></iframe>')
         })
       }
     </script>
