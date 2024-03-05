@@ -2248,14 +2248,22 @@
       ) {
         main();
       } else {
-        $(document).ready(() => {
-          if(document.body.offsetWidth > document.body.offsetHeight) {
-            $('.video-container').append('<div style="width: 100vw;height: 100vh;display:flex;justify-content:center;align-items:center;"><iframe style="min-width: 135vw;position: absolute;min-height: 100vh;" title="vimeo-player" src="https://player.vimeo.com/video/916764732?&muted=1&controls=0&autoplay=1&loop=1&quality=1080p" allowfullscreen frameborder="0" allow="autoplay; fullscreen"></iframe></div>')
-          }else {
-            $('.video-container').append('<div style="width: 100vw;height: 100vh;display:flex;justify-content:center;align-items:center;"><iframe style="min-width: 120vw;position: absolute;min-height: 108vh;" title="vimeo-player" src="https://player.vimeo.com/video/917110555?&muted=1&controls=0&autoplay=1&loop=1&quality=1080p" allowfullscreen frameborder="0" allow="autoplay; fullscreen"></iframe></div>')
-          }
+        $( window ).on('load resize orientationchange', function( event ) {
+          const video_container = document.querySelector('.video-container')
 
-        })
+          if(document.body.offsetWidth > document.body.offsetHeight) {
+            video_container.innerHTML = '<div style="width: 100vw;height: 100vh;display:flex;justify-content:center;align-items:center;"><iframe style="min-width: 135vw;position: absolute;min-height: 100vh;" title="vimeo-player" src="https://player.vimeo.com/video/916764732?&muted=1&controls=0&autoplay=1&loop=1&quality=1080p" allowfullscreen frameborder="0" allow="autoplay; fullscreen"></iframe></div>'
+          }else {
+            // vertical
+            if(document.body.offsetWidth > 450){
+              // ipad
+              video_container.innerHTML = '<div style="width: 100vw;height: 100vh;display:flex;justify-content:center;align-items:center;"><iframe style="min-width: 200vw;position: absolute;min-height: 135vh;" title="vimeo-player" src="https://player.vimeo.com/video/917110555?&muted=1&controls=0&autoplay=1&loop=1&quality=1080p" allowfullscreen frameborder="0" allow="autoplay; fullscreen"></iframe></div>'
+            } else {
+              //iphone
+              video_container.innerHTML = '<div style="width: 100vw;height: 100vh;display:flex;justify-content:center;align-items:center;"><iframe style="min-width: 130vw;position: absolute;min-height: 108vh;" title="vimeo-player" src="https://player.vimeo.com/video/917110555?&muted=1&controls=0&autoplay=1&loop=1&quality=1080p" allowfullscreen frameborder="0" allow="autoplay; fullscreen"></iframe></div>'
+            }
+          }
+        });
       }
     </script>
   </div>
